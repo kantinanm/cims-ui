@@ -1,7 +1,0 @@
-POST https://tools.ecpe.nu.ac.th/cims/api/login HTTP/1.1
-Content-Type: application/json
-
-{
-    "email":"kantinanm@nu.ac.th",
-    "password":"123456789"
-}

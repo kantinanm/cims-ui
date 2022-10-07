@@ -8,3 +8,4 @@ public/js/*.min.js
 **/*.bak
 *.bak
 .env
+request-example/*.http
