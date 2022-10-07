@@ -1,0 +1,9 @@
+POST https://tools.ecpe.nu.ac.th/cims/api/register HTTP/1.1
+content-type: application/json
+
+{
+    "name":"MAKMEE K.",
+    "student_id":"47311659",
+    "email":"kantinanm@nu.ac.th",
+    "password":"123456789"
+}
