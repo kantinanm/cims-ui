@@ -68,6 +68,22 @@
                             <input type="text" class="form-control" id="txtSubjectAdd">
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-3" style=" text-align: right;">
+                            <label for="txtSubjectAddEn" style=" font-family: 'Kanit', sans-serif; font-size: 14px;">ชื่อวิชาภาษาอังกฤษ </label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="txtSubjectAddEn">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3" style=" text-align: right;">
+                            <label for="txtSubjectUnit" style=" font-family: 'Kanit', sans-serif; font-size: 14px;">จำนวนหน่วยกิต </label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control" id="txtSubjectUnit">
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -107,10 +123,10 @@
                                         
                                         <div class="row">
                                             <div class="col-3">
-                                                <label for="cboInstitute">กลุ่มสถาบัน</label>
+                                                <label for="cboUniversityGroup">กลุ่มสถาบัน</label>
                                             </div>
                                             <div class="col-12">
-                                                <select class="form-control" id="cboInstitute" name="cboInstitute">
+                                                <select class="form-control" id="cboUniversityGroup" name="cboUniversityGroup">
                                                     <option selected>---โปรดระบุ---</option>
                                                     <option>List</option>
                                                 </select>
@@ -239,7 +255,7 @@
                                             <input type="text" class="form-control" id="txtTotalCredit">
                                         </div>
                                         <div class="col-3">
-                                            หน่วยกิต
+                                            หน่วยกิจ
                                         </div>
                                     </div>
                                     <div class="row">
@@ -292,7 +308,7 @@
                                     <button class="btn btn-outline-secondary" type="button" id="btnAddSubject" data-toggle="modal" data-target="#pnlAddSubject">เพิ่มรายวิชา</button>
                                     <div class="tab-container">
                                         
-                                        <table class="table table-striped">
+                                        <table class="table table-striped" id="tbSubject">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">#</th>
@@ -302,13 +318,13 @@
                                                     <th scope="col">แก้ไข</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="tbody">
                                                 <tr>
                                                     <th scope="row">1</th>
                                                     <td>xxxx</td>
                                                     <td>วิศวกรรมสิ่งแวดล้อม </td>
                                                     <td><input type="text" name="creditSub1" id="creditSub1" placeholder="หน่วยกิต"/></td>
-                                                    <td><a href="#" class="button gradient-btn wow">แก้ไข</a></td>
+                                                    <td><button class="btn btn-outline-primary" type="button" >แก้ไข</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -373,7 +389,6 @@
        //set
        //Cookies.set('name', 'value', { expires: 7 })
 
-
        /*
        Swal.fire({
             title: 'Success!',
@@ -389,7 +404,7 @@
 
        $.ajax({
             method: "GET",
-            url: "https://tools.ecpe.nu.ac.th/cims/api/institutes",
+            url: "https://tools.ecpe.nu.ac.th/cims/api/university-groups",
             dataType : 'json',
             headers: { 
               'Content-Type': 'application/json',
@@ -399,21 +414,224 @@
             success: function(data){
               console.log(data);
               console.log(data.data);
-              var list =data.data.institutes;
+              var list =data.data.university_groups;
 
               console.log(list.length);
               var options = '';
               for (var i = 0; i < list.length; i++) {
-                options += '<option value="' + list[i].institute_type_id + '">' + list[i].institute_type_name + '</option>';
+                options += '<option value="' + list[i].univ_group_id + '">' + list[i].univ_group_name + '</option>';
               }
-             $("select#cboInstitute").html(options);
+             $("select#cboUniversityGroup").html(options);
               
 
               //alert("Done");
             }
         });
+        //---------On Change-------
 
 
+        
+        $("select#cboUniversityGroup").change(function(){
+            $('select#cboUniversity option:not(:first)').remove();
+            $('select#cboFaculty option:not(:first)').remove();
+            $('select#cboCurriculum option:not(:first)').remove();
+            
+            //clear datatable
+            $("#tbSubject").find("tr:gt(0)").remove();
+            
+            //clear data
+            clearCurriculumData();
+
+            if($(this).val()!=""){
+               
+                $.ajax({
+                    beforeSend: function(request) {
+                        request.setRequestHeader('Authorization', 'Bearer '+tokenValue);
+                        request.setRequestHeader('Content-Type', 'application/json');
+                    },
+                    dataType: "json",
+                    url: "https://tools.ecpe.nu.ac.th/cims/api/universities-by-group/"+$(this).val(),
+                    success: function(data) {
+                        //Your code
+                        console.log(data);
+                        console.log(data.data);
+                        var list =data.data.universities;
+          
+                        console.log(list.length);
+
+                        var options = '';
+                        for (var i = 0; i < list.length; i++) {
+                          options += '<option value="' + list[i].univ_id + '">' + list[i].univ_name_th + '</option>';
+                        }
+                        $('#cboUniversity').append(options);
+                    }
+                });
+   
+            }// end if
+
+        });
+
+        $("select#cboUniversity").change(function(){
+            $('select#cboFaculty option:not(:first)').remove();
+
+            if($(this).val()!=""){
+               
+                $.ajax({
+                    beforeSend: function(request) {
+                        request.setRequestHeader('Authorization', 'Bearer '+tokenValue);
+                        request.setRequestHeader('Content-Type', 'application/json');
+                    },
+                    dataType: "json",
+                    url: "https://tools.ecpe.nu.ac.th/cims/api/faculties-in-uni/"+$(this).val(),
+                    success: function(data) {
+                        //Your code
+                        console.log(data);
+                        console.log(data.data);
+                        var list =data.data.faculties;
+          
+                        console.log(list.length);
+
+                        var options = '';
+                        for (var i = 0; i < list.length; i++) {
+                          options += '<option value="' + list[i].fac_id + '">' + list[i].fac_name_th + '</option>';
+                        }
+                        $('#cboFaculty').append(options);
+                    }
+                });
+   
+            }// end if
+
+        });
+
+
+        $("select#cboFaculty").change(function(){
+            $('select#cboCurriculum option:not(:first)').remove();
+
+            if($(this).val()!=""){
+               
+                $.ajax({
+                    beforeSend: function(request) {
+                        request.setRequestHeader('Authorization', 'Bearer '+tokenValue);
+                        request.setRequestHeader('Content-Type', 'application/json');
+                    },
+                    dataType: "json",
+                    url: "https://tools.ecpe.nu.ac.th/cims/api/curriculum/"+$("select#cboUniversity").val()+"/"+$(this).val(),
+                    success: function(data) {
+                        //Your code
+                        console.log(data);
+                        console.log(data.data);
+                        var list =data.data.curriculum;
+          
+                        console.log(list.length);
+
+                        var options = '';
+                        for (var i = 0; i < list.length; i++) {
+                          options += '<option value="' + list[i].curr_id + '">' + list[i].curr_name + '</option>';
+                        }
+                        $('#cboCurriculum').append(options);
+                    }
+                });
+            }// end if
+        });
+
+        $("select#cboCurriculum").change(function(){
+            //clear data
+            clearCurriculumData();
+
+            if($(this).val()!=""){
+                
+                applyCurriculumData($(this).val());
+                applySubjectData($(this).val());
+                
+            }// end if
+        });
+
+        //-----custom function------
+        
+        function applyCurriculumData(curr_id){
+
+            $.ajax({
+                beforeSend: function(request) {
+                    request.setRequestHeader('Authorization', 'Bearer '+tokenValue);
+                    request.setRequestHeader('Content-Type', 'application/json');
+                },
+                dataType: "json",
+                url: "https://tools.ecpe.nu.ac.th/cims/api/curriculum/"+curr_id,
+                success: function(data) {
+                    //Your code
+                    console.log(data);
+                    console.log(data.data);
+                    var result =data.data.curriculum;
+      
+                    console.log(result.length);
+                    
+                    $('#txtCurriculumNameTh').val(result[0].bachelor_th);
+                    $('#txtAbbrCurriculumNameTh').val(result[0].s_bachelor_th);
+                    $('#txtCurriculumNameEn').val(result[0].bachelor_en);
+                    $('#txtAbbrCurriculumNameEn').val(result[0].s_bachelor_en);
+                    $('#txtBachelorBranch').val(result[0].bachelorbranch);
+                    $('#txtTotalCredit').val(result[0].credit_units_1);
+
+                }
+            });
+        }
+
+        function clearCurriculumData(){
+            $('#txtCurriculumNameTh').val('');
+            $('#txtAbbrCurriculumNameTh').val('');
+            $('#txtCurriculumNameEn').val('');
+            $('#txtAbbrCurriculumNameEn').val('');
+            $('#txtBachelorBranch').val('');
+            $('#txtTotalCredit').val('');
+        }
+
+        
+        function applySubjectData(curr_id){
+
+            $.ajax({
+                beforeSend: function(request) {
+                    request.setRequestHeader('Authorization', 'Bearer '+tokenValue);
+                    request.setRequestHeader('Content-Type', 'application/json');
+                },
+                dataType: "json",
+                url: "https://tools.ecpe.nu.ac.th/cims/api/subject/"+curr_id,
+                success: function(result) {
+                    //Your code
+                    console.log(result.length);
+                    console.log('Update subject');
+                    updateSubject(result);
+
+                }
+            });
+        }
+
+
+         //----------Utility----------------------
+        function updateSubject(items) {
+            console.log("updateSubject"+items.length);
+            
+            //clear datatable
+            $("#tbSubject").find("tr:gt(0)").remove();
+            
+
+            for (var i = 0; i < items.length; i++) {
+                var indexRef=i+1;
+                var col1=indexRef;
+                var col2=items[i].subject_code;
+                var col3=items[i].subject_name;
+                var col4="<input type='text' name='txtCreditSub"+indexRef+"' id='txtCreditSub"+indexRef+"' placeholder='หน่วยกิต' style='width:90px;'/>";
+                var col5="<button class='btn btn-outline-primary' type='button' onclick='javascript:alert(100);return false;' >แก้ไข</button>";
+                
+                $('#tbody').append('<tr id="rowSub'+indexRef+'"><td>'+col1+'</td><td>'+col2+'</td><td>'+col3+'</td><td>'+col4+'</td><td>'+col5+'</td></tr>');
+            
+            }
+        
+        }
+        
+
+        
+        
+        //----------Control Wizard-form----------------------
         var current_fs, next_fs, previous_fs; //fieldsets
         var opacity;
 
