@@ -170,42 +170,29 @@ select.list-dt:focus {
     float: left;
     position: relative;
 }
-
+ /*f114*/
 /*Icons in the ProgressBar*/
-#progressbar #general:before {
+/*Icons in the ProgressBar*/
+#progressbar #account:before {
     font-family: FontAwesome;
-    content: "\f19c";  /*f114*/
+    content: "\f114";
 }
 
-#progressbar #tab1:before {
+#progressbar #personal:before {
     font-family: FontAwesome;
-    content: "\f114"; /*f007*/
+    content: "\f114";
 }
 
-#progressbar #tab2:before {
+#progressbar #payment:before {
     font-family: FontAwesome;
-    content: "\f09d";
-}
-
-#progressbar #tab3:before {
-    font-family: FontAwesome;
-    content: "\f09d";
-}
-
-#progressbar #tab4:before {
-    font-family: FontAwesome;
-    content: "\f09d";
-}
-
-#progressbar #tab5:before {
-    font-family: FontAwesome;
-    content: "\f007";
+    content: "\f114";
 }
 
 #progressbar #confirm:before {
     font-family: FontAwesome;
     content: "\f00c";
 }
+
 
 /*ProgressBar before any progress*/
 #progressbar li:before {

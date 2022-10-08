@@ -20,6 +20,8 @@
 <!--https://bbbootstrap.com/snippets/multi-step-form-wizard-30467045# -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet"/>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="styles/style.min.css">
 </head>
 <body>
@@ -35,6 +37,48 @@
         </ul>
     </nav>
   
+  <!--Popup -->
+  <!-- Modal -->
+  <div class="modal fade" id="pnlAddSubject" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="pnlAddSubjectLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pnlAddSubjectLabel" style=" font-family: 'Kanit', sans-serif; font-size: 16px;">เพิ่มรายวิชา</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="form-card">
+                    <h2 class="fs-title">รายละเอียด</h2>
+                    <div class="row">
+                        <div class="col-3" style=" text-align: right;">
+                            <label for="txtSubjectCode" style=" font-family: 'Kanit', sans-serif; font-size: 14px;">รหัสวิชา </label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control" id="txtSubjectCode">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3" style=" text-align: right;">
+                            <label for="txtSubjectAdd" style=" font-family: 'Kanit', sans-serif; font-size: 14px;">ชื่อวิชาภาษาไทย </label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="txtSubjectAdd">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                <button type="button" class="btn btn-primary">บันทึกข้อมูล</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Popup -->
 
     <!-- MultiStep Form -->
     <div class="container-fluid" id="grad1">
@@ -46,18 +90,21 @@
                     <div class="row">
                         <div class="col-md-12 mx-0">
                             <form id="msform">
+
+
                                 <!-- progressbar -->
                                 <ul id="progressbar">
-                                    <li class="active" id="general"><strong>ข้อมูลแฟ้ม 1-2</strong></li>
-                                    <li id="tab1"><strong>ข้อมูลแฟ้ม 3</strong></li>
-                                    <li id="tab2"><strong>ข้อมูลแฟ้ม 5-9</strong></li>
+                                    <li class="active" id="account"><strong>ข้อมูลแฟ้ม 1-2</strong></li>
+                                    <li id="personal"><strong>ข้อมูลแฟ้ม 3</strong></li>
+                                    <li id="payment"><strong>ข้อมูลแฟ้ม 5-9</strong></li>
                                     <li id="confirm"><strong>Finish</strong></li>
                                 </ul>
+                                <!-- fieldsets -->
                                 <!-- fieldsets -->
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">ข้อมูลทั่วไป</h2>
-
+                                        
                                         <div class="row">
                                             <div class="col-3">
                                                 <label for="cboInstitute">กลุ่มสถาบัน</label>
@@ -91,7 +138,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-3" style=" text-align: right;">
-                                                <label for="txtDepartment">ภาควิชาฯ </label><span style="color:#dd3675;">&nbsp;&nbsp;(free) *</span>
+                                                <label for="txtDepartment">ภาควิชาฯ </label><span style="color:red;">&nbsp;(free) *</span>
                                             </div>
                                             <div class="col-9">
                                                 <input type="text" class="form-control" id="txtDepartment">
@@ -107,19 +154,19 @@
                                                 </select>
                                             </div>
                                         </div>
-
+                                        
                                         <div class="row">
                                             <div class="col-3" style=" text-align: right;">
-                                                <label for="txtCurriculumNameTh">ชื่อหลักสูตรภาษาไทย </label><span style="color:#dd3675;">&nbsp;&nbsp;(Auto)*</span>
+                                                <label for="txtCurriculumNameTh">ชื่อหลักสูตรภาษาไทย </label><span style="color:blue;">&nbsp;&nbsp;(Auto)*</span>
                                             </div>
                                             <div class="col-9">
                                                 <input type="text" class="form-control" id="txtCurriculumNameTh">
                                             </div>
                                         </div>
-
+                                        
                                         <div class="row">
                                             <div class="col-3" style=" text-align: right;">
-                                                <label for="txtAbbrCurriculumNameTh">อักษรย่อ ภาษาไทย </label><span style="color:#dd3675;">&nbsp;&nbsp;(Auto)*</span>
+                                                <label for="txtAbbrCurriculumNameTh">อักษรย่อ ภาษาไทย </label><span style="color:blue;">&nbsp;&nbsp;(Auto)*</span>
                                             </div>
                                             <div class="col-4">
                                                 <input type="text" class="form-control" id="txtAbbrCurriculumNameTh">
@@ -127,101 +174,180 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-3" style=" text-align: right;">
-                                                <label for="txtCurriculumNameEn">ชื่อหลักสูตรภาษาอังกฤษ </label><span style="color:#dd3675;">&nbsp;&nbsp;(Auto)*</span>
+                                                <label for="txtCurriculumNameEn">ชื่อหลักสูตรภาษาอังกฤษ </label><span style="color:blue;">&nbsp;&nbsp;(Auto)*</span>
                                             </div>
                                             <div class="col-9">
                                                 <input type="text" class="form-control" id="txtCurriculumNameEn">
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-3" style=" text-align: right;">
+                                                <label for="txtAbbrCurriculumNameEn">อักษรย่อ อังกฤษ </label><span style="color:blue;">&nbsp;&nbsp;(Auto)*</span>
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="text" class="form-control" id="txtAbbrCurriculumNameEn">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3" style=" text-align: right;">
+                                                <label for="txtBachelorBranch">ชื่อสาขา </label><span style="color:blue;">&nbsp;&nbsp;(Auto)*</span>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" class="form-control" id="txtBachelorBranch">
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <h2 class="fs-title">ข้อมูลแฟ้ม 2</h2>
+                                        <div class="row">
+                                            <div class="col-3" style=" text-align: right;">
+                                                <label for="txtPhilosophy">ปรัชญา </label><span style="color:red;">&nbsp;(free) *</span>
+                                            </div>
+                                            <div class="col-9">
+                                                <textarea class="form-control" id="txtPhilosophy" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3" style=" text-align: right;">
+                                                <label for="txtObjective">วัตถุประสงค์ </label><span style="color:red;">&nbsp;(free) *</span>
+                                            </div>
+                                            <div class="col-9">
+                                                <textarea class="form-control" id="txtObjective" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3" style=" text-align: right;">
+                                                <label for="txtOutcome">ผลลัพธ์การเรียนรู้ </label><span style="color:red;">&nbsp;(free) *</span>
+                                            </div>
+                                            <div class="col-9">
+                                                <textarea class="form-control" id="txtOutcome" rows="4"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <input type="button" name="next" class="next action-button" value="ถัดไป"/>
+                                </fieldset>
+                                
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">ข้อมูลแฟ้ม 3</h2>
+                                        
+                                    <div class="row">
+                                        <div class="col-6" style=" text-align: right;">
+                                            <label for="txtTotalCredit">จำนวนหน่วยกิจรวมตลอดหลักสูตร </label><span style="color:blue;">&nbsp;&nbsp;(Auto)*</span>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="form-control" id="txtTotalCredit">
+                                        </div>
+                                        <div class="col-3">
+                                            หน่วยกิต
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6" style=" text-align: right;">
+                                            <label for="txtYear">ระยะเวลาการศึกษา </label><span style="color:blue;">&nbsp;&nbsp;(Auto)*</span>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="form-control" id="txtYear">
+                                        </div>
+                                        <div class="col-3">
+                                            ปี
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6" style=" text-align: right;">
+                                            <label for="txtGenaralCredit">หมวดวิชาศึกษาทั่วไป </label><span style="color:red;">&nbsp;(free) *</span>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="form-control" id="txtGenaralCredit">
+                                        </div>
+                                        <div class="col-3">
+                                            หน่วยกิต
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6" style=" text-align: right;">
+                                            <label for="txtSpecificationCredit">หมวดวิชาเฉพาะ </label><span style="color:red;">&nbsp;(free) *</span>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="form-control" id="txtSpecificationCredit">
+                                        </div>
+                                        <div class="col-3">
+                                            หน่วยกิต
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6" style=" text-align: right;">
+                                            <label for="txtEletiveCredit">หมวดวิชาเลือกเสรี </label><span style="color:red;">&nbsp;(free) *</span>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="text" class="form-control" id="txtEletiveCredit">
+                                        </div>
+                                        <div class="col-3">
+                                            หน่วยกิต
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                    <h2 class="fs-title">รายวิชา</h2>
+                                    
+                                    <button class="btn btn-outline-secondary" type="button" id="btnAddSubject" data-toggle="modal" data-target="#pnlAddSubject">เพิ่มรายวิชา</button>
+                                    <div class="tab-container">
+                                        
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">รหัสวิชา</th>
+                                                    <th scope="col">ชื่อวิชา</th>
+                                                    <th scope="col">หน่วยกิต</th>
+                                                    <th scope="col">แก้ไข</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>xxxx</td>
+                                                    <td>วิศวกรรมสิ่งแวดล้อม </td>
+                                                    <td><input type="text" name="creditSub1" id="creditSub1" placeholder="หน่วยกิต"/></td>
+                                                    <td><a href="#" class="button gradient-btn wow">แก้ไข</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
 
                                     </div>
-                                    <input type="button" name="next" class="next action-button" value="ถัดไป"/>
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">ข้อมูลแฟ้ม 2</h2>
-                                        <input type="text" name="fname" placeholder="First Name"/>
-                                        <input type="text" name="lname" placeholder="Last Name"/>
-                                        <input type="text" name="phno" placeholder="Contact No."/>
-                                        <input type="text" name="phno_2" placeholder="Alternate Contact No."/>
-                                    </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="ย้อนกลับ"/>
-                                    <input type="button" name="next" class="next action-button" value="ถัดไป"/>
-                                </fieldset>
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">ข้อมูลแฟ้ม 3</h2>
-                                    </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="ย้อนกลับ"/>
-                                    <input type="button" name="next" class="next action-button" value="ถัดไป"/>
-                                </fieldset>
-                                <!--<fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title">Payment Information</h2>
-                                        <div class="radio-group">
-                                            <div class='radio' data-value="credit"><img src="https://i.imgur.com/XzOzVHZ.jpg" width="200px" height="100px"></div>
-                                            <div class='radio' data-value="paypal"><img src="https://i.imgur.com/jXjwZlj.jpg" width="200px" height="100px"></div>
-                                            <br>
-                                        </div>
-                                        <label class="pay">Card Holder Name*</label>
-                                        <input type="text" name="holdername" placeholder=""/>
-                                        <div class="row">
-                                            <div class="col-9">
-                                                <label class="pay">Card Number*</label>
-                                                <input type="text" name="cardno" placeholder=""/>
-                                            </div>
-                                            <div class="col-3">
-                                                <label class="pay">CVC*</label>
-                                                <input type="password" name="cvcpwd" placeholder="***"/>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <label class="pay">Expiry Date*</label>
-                                            </div>
-                                            <div class="col-9">
-                                                <select class="list-dt" id="month" name="expmonth">
-                                                    <option selected>Month</option>
-                                                    <option>January</option>
-                                                    <option>February</option>
-                                                    <option>March</option>
-                                                    <option>April</option>
-                                                    <option>May</option>
-                                                    <option>June</option>
-                                                    <option>July</option>
-                                                    <option>August</option>
-                                                    <option>September</option>
-                                                    <option>October</option>
-                                                    <option>November</option>
-                                                    <option>December</option>
-                                                </select>
-                                                <select class="list-dt" id="year" name="expyear">
-                                                    <option selected>Year</option>
-                                                </select>
-                                            </div>
+                                </div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="ย้อนกลับ"/>
+                                <input type="button" name="next" class="next action-button" value="ถัดไป"/>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">ข้อมูลแฟ้ม 5-9</h2>
+                                </div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="ย้อนกลับ"/>
+                                <input type="button" name="make_payment" class="next action-button" value="ยืนยัน"/>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title text-center">Success !</h2>
+                                    <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-3">
+                                            <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
                                         </div>
                                     </div>
-                                    <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                                    <input type="button" name="make_payment" class="next action-button" value="Confirm"/>
-                                </fieldset> -->
-                                <fieldset>
-                                    <div class="form-card">
-                                        <h2 class="fs-title text-center">Success !</h2>
-                                        <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-3">
-                                                <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
-                                            </div>
-                                        </div>
-                                        <br><br>
-                                        <div class="row justify-content-center">
-                                            <div class="col-7 text-center">
-                                                <h5>You Have Successfully Signed Up</h5>
-                                            </div>
+                                    <br><br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-7 text-center">
+                                            <h5>You Have Successfully Signed Up</h5>
                                         </div>
                                     </div>
-                                </fieldset>
+                                </div>
+                            </fieldset>
                             </form>
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -248,6 +374,18 @@
        //Cookies.set('name', 'value', { expires: 7 })
 
 
+       /*
+       Swal.fire({
+            title: 'Success!',
+            text: 'test',
+            icon: 'success',
+            confirmButtonText: 'Okay'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log("callback");
+            } 
+        });
+        */
 
        $.ajax({
             method: "GET",
