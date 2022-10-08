@@ -172,19 +172,34 @@ select.list-dt:focus {
 }
 
 /*Icons in the ProgressBar*/
-#progressbar #account:before {
+#progressbar #general:before {
     font-family: FontAwesome;
-    content: "\f023";
+    content: "\f19c";  /*f114*/
 }
 
-#progressbar #personal:before {
+#progressbar #tab1:before {
     font-family: FontAwesome;
-    content: "\f007";
+    content: "\f114"; /*f007*/
 }
 
-#progressbar #payment:before {
+#progressbar #tab2:before {
     font-family: FontAwesome;
     content: "\f09d";
+}
+
+#progressbar #tab3:before {
+    font-family: FontAwesome;
+    content: "\f09d";
+}
+
+#progressbar #tab4:before {
+    font-family: FontAwesome;
+    content: "\f09d";
+}
+
+#progressbar #tab5:before {
+    font-family: FontAwesome;
+    content: "\f007";
 }
 
 #progressbar #confirm:before {

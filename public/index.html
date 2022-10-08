@@ -41,16 +41,16 @@
         <div class="row justify-content-center mt-0">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                    <h2><strong>Sign Up Your User Account</strong></h2>
-                    <p>Fill all form field to go to next step</p>
+                    <h2><strong>สร้างหลักสูตรใหม่ในระบบ</strong></h2>
+                    <p>โปรดระบุและกรอกข้อมูลให้สอดคล้องตามแบบฟอร์ม จากนั้นกดปุ่มถัดไป หรือ ย้อนกลับ เมื่อต้องการแก้ไขข้อมูล</p>
                     <div class="row">
                         <div class="col-md-12 mx-0">
                             <form id="msform">
                                 <!-- progressbar -->
                                 <ul id="progressbar">
-                                    <li class="active" id="account"><strong>Account</strong></li>
-                                    <li id="personal"><strong>Personal</strong></li>
-                                    <li id="payment"><strong>Payment</strong></li>
+                                    <li class="active" id="general"><strong>ข้อมูลแฟ้ม 1-2</strong></li>
+                                    <li id="tab1"><strong>ข้อมูลแฟ้ม 3</strong></li>
+                                    <li id="tab2"><strong>ข้อมูลแฟ้ม 5-9</strong></li>
                                     <li id="confirm"><strong>Finish</strong></li>
                                 </ul>
                                 <!-- fieldsets -->
@@ -60,13 +60,77 @@
 
                                         <div class="row">
                                             <div class="col-3">
-                                                <label for="cboInstitute">ประเภทสถาบัน</label>
+                                                <label for="cboInstitute">กลุ่มสถาบัน</label>
                                             </div>
                                             <div class="col-12">
                                                 <select class="form-control" id="cboInstitute" name="cboInstitute">
-                                                    <option selected>Month</option>
-                                                    <option>January</option>
+                                                    <option selected>---โปรดระบุ---</option>
+                                                    <option>List</option>
                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label for="cboUniversity">มหาวิทยาลัย</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <select class="form-control" id="cboUniversity" name="cboUniversity">
+                                                    <option selected>---โปรดระบุ---</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label for="cboFaculty">คณะ</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <select class="form-control" id="cboFaculty" name="cboFaculty">
+                                                    <option selected>---โปรดระบุ---</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3" style=" text-align: right;">
+                                                <label for="txtDepartment">ภาควิชาฯ </label><span style="color:#dd3675;">&nbsp;&nbsp;(free) *</span>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" class="form-control" id="txtDepartment">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label for="cboCurriculum">หลักสูตร</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <select class="form-control" id="cboCurriculum" name="cboCurriculum">
+                                                    <option selected>---โปรดระบุ---</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-3" style=" text-align: right;">
+                                                <label for="txtCurriculumNameTh">ชื่อหลักสูตรภาษาไทย </label><span style="color:#dd3675;">&nbsp;&nbsp;(Auto)*</span>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" class="form-control" id="txtCurriculumNameTh">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-3" style=" text-align: right;">
+                                                <label for="txtAbbrCurriculumNameTh">อักษรย่อ ภาษาไทย </label><span style="color:#dd3675;">&nbsp;&nbsp;(Auto)*</span>
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="text" class="form-control" id="txtAbbrCurriculumNameTh">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3" style=" text-align: right;">
+                                                <label for="txtCurriculumNameEn">ชื่อหลักสูตรภาษาอังกฤษ </label><span style="color:#dd3675;">&nbsp;&nbsp;(Auto)*</span>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" class="form-control" id="txtCurriculumNameEn">
                                             </div>
                                         </div>
 
@@ -75,16 +139,23 @@
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
-                                        <h2 class="fs-title">Personal Information</h2>
+                                        <h2 class="fs-title">ข้อมูลแฟ้ม 2</h2>
                                         <input type="text" name="fname" placeholder="First Name"/>
                                         <input type="text" name="lname" placeholder="Last Name"/>
                                         <input type="text" name="phno" placeholder="Contact No."/>
                                         <input type="text" name="phno_2" placeholder="Alternate Contact No."/>
                                     </div>
                                     <input type="button" name="previous" class="previous action-button-previous" value="ย้อนกลับ"/>
-                                    <input type="button" name="next" class="next action-button" value="Next Step"/>
+                                    <input type="button" name="next" class="next action-button" value="ถัดไป"/>
                                 </fieldset>
                                 <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title">ข้อมูลแฟ้ม 3</h2>
+                                    </div>
+                                    <input type="button" name="previous" class="previous action-button-previous" value="ย้อนกลับ"/>
+                                    <input type="button" name="next" class="next action-button" value="ถัดไป"/>
+                                </fieldset>
+                                <!--<fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title">Payment Information</h2>
                                         <div class="radio-group">
@@ -132,7 +203,7 @@
                                     </div>
                                     <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                     <input type="button" name="make_payment" class="next action-button" value="Confirm"/>
-                                </fieldset>
+                                </fieldset> -->
                                 <fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title text-center">Success !</h2>
