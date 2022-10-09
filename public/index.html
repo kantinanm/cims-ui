@@ -111,7 +111,7 @@
                                 <!-- progressbar -->
                                 <ul id="progressbar">
                                     <li class="active" id="account"><strong>ข้อมูลแฟ้ม 1-2</strong></li>
-                                    <li id="personal"><strong>ข้อมูลแฟ้ม 3</strong></li>
+                                    <li id="personal"><strong>ข้อมูลแฟ้ม 3-4</strong></li>
                                     <li id="payment"><strong>ข้อมูลแฟ้ม 5-9</strong></li>
                                     <li id="confirm"><strong>Finish</strong></li>
                                 </ul>
@@ -328,16 +328,49 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-
-
                                     </div>
+                                    <hr/>
+                                    <h2 class="fs-title">ข้อมูลแฟ้ม 4</h2>
+                                    <div class="row">
+                                        <div class="col-5" style=" text-align: right;">
+                                            <label for="txtMethodology">การจัดกระบวนการการเรียนรู้ </label><span style="color:red;">&nbsp;(free) *</span>
+                                        </div>
+                                        <div class="col-7">
+                                            <textarea class="form-control" id="txtMethodology" rows="4"></textarea>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="ย้อนกลับ"/>
                                 <input type="button" name="next" class="next action-button" value="ถัดไป"/>
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title">ข้อมูลแฟ้ม 5-9</h2>
+                                    <h2 class="fs-title">ข้อมูลแฟ้ม 5</h2>
+                                    <div class="tab-container">
+                                        <table class="table table-striped" id="tbSubject">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">รหัสวิชา</th>
+                                                    <th scope="col">ชื่อวิชา</th>
+                                                    <th scope="col">หน่วยกิต</th>
+                                                    <th scope="col">แก้ไข</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbodyLecturer">
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>xxxx</td>
+                                                    <td>วิศวกรรมสิ่งแวดล้อม </td>
+                                                    <td><input type="text" name="creditSub1" id="creditSub1" placeholder="หน่วยกิต"/></td>
+                                                    <td><button class="btn btn-outline-primary" type="button" >แก้ไข</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="ย้อนกลับ"/>
                                 <input type="button" name="make_payment" class="next action-button" value="ยืนยัน"/>
