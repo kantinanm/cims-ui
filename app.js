@@ -40,7 +40,6 @@ const requestLogger = (request, response, next) => {
   if (request.cookies.loggedin == "true") {
     console.log("Yup! You are logged in!");
   }
-
   next();
 };
 
@@ -57,6 +56,9 @@ app.get("/login", function (req, res) {
 });
 
 var port = process.env.port || config.port;
+
+console.log(" Port config: " + port);
+console.log(" API URL: " + config.external_url);
 
 app.listen(port, function () {
   console.log("Starting node.js on port " + port);

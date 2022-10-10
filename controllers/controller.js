@@ -19,11 +19,11 @@ const login = (req, res, next) => {
   };
 
   console.log(`checklogin: ${param.email} , ${param.password}`);
-  //console.log("url " + config.EXTERNAL_API + "/login");
+  console.log(`url api :${config.external_url}/login`);
 
   request({
     method: "POST",
-    uri: "https://tools.ecpe.nu.ac.th/cims/api/login",
+    uri: config.external_url + "/login",
     headers: { "Content-Type": "application/json" },
     json: true,
     body: {
@@ -33,7 +33,6 @@ const login = (req, res, next) => {
   })
     .then((response) => {
       console.log("Sent");
-
       console.log(`result login: ${response.success} ,${response.token}`);
 
       if (response.success == true) {
@@ -63,7 +62,7 @@ const logout = (req, res, next) => {
 
   request({
     method: "GET",
-    uri: "https://tools.ecpe.nu.ac.th/cims/api/logout",
+    uri: config.external_url + "/logout",
     headers: {
       "Content-Type": "application/json",
     },

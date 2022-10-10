@@ -84,6 +84,75 @@
                             <input type="text" class="form-control" id="txtSubjectUnit">
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12" style=" text-align: left;">
+                            <label for="txtDescriptionTH"  style=" font-family: 'Kanit', sans-serif; font-size: 14px;">คำอธิบายรายวิชา(Thai) </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <textarea class="form-control" id="txtDescriptionTH" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12" style=" text-align: left;">
+                            <label for="txtDescriptionEN"  style=" font-family: 'Kanit', sans-serif; font-size: 14px;">คำอธิบายรายวิชา(Eng) </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <textarea class="form-control" id="txtDescriptionEN" rows="4"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                <button type="button" class="btn btn-primary">บันทึกข้อมูล</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="pnlExtraLecturer" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="pnlExtraLecturerLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pnlExtraLecturerLabel" style=" font-family: 'Kanit', sans-serif; font-size: 16px;">เพิ่มข้อมูลอาจารย์</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="form-card">
+                    <h2 class="fs-title">รายละเอียด</h2>
+                    <div class="row">
+                        <div class="col-3" style=" text-align: right;">
+                            <label for="txtPositon" style=" font-family: 'Kanit', sans-serif; font-size: 14px;">ตำแหน่ง </label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control" id="txtPositon">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3" style=" text-align: right;">
+                            <label for="txtFristNameAdd" style=" font-family: 'Kanit', sans-serif; font-size: 14px;">ชื่อ </label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="txtFristNameAdd">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3" style=" text-align: right;">
+                            <label for="txtLastNameAddEn" style=" font-family: 'Kanit', sans-serif; font-size: 14px;">นามสกุล </label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="txtLastNameAddEn">
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -107,13 +176,12 @@
                         <div class="col-md-12 mx-0">
                             <form id="msform">
 
-
                                 <!-- progressbar -->
                                 <ul id="progressbar">
                                     <li class="active" id="account"><strong>ข้อมูลแฟ้ม 1-2</strong></li>
                                     <li id="personal"><strong>ข้อมูลแฟ้ม 3-4</strong></li>
-                                    <li id="payment"><strong>ข้อมูลแฟ้ม 5-9</strong></li>
-                                    <li id="confirm"><strong>Finish</strong></li>
+                                    <li id="payment"><strong>ข้อมูลแฟ้ม 5</strong></li>
+                                    <li id="confirm"><strong>ข้อมูลแฟ้ม 6-9</strong></li>
                                 </ul>
                                 <!-- fieldsets -->
                                 <!-- fieldsets -->
@@ -127,7 +195,7 @@
                                             </div>
                                             <div class="col-12">
                                                 <select class="form-control" id="cboUniversityGroup" name="cboUniversityGroup">
-                                                    <option selected>---โปรดระบุ---</option>
+                                                    <option selected value="">---โปรดระบุ---</option>
                                                     <option>List</option>
                                                 </select>
                                             </div>
@@ -138,7 +206,7 @@
                                             </div>
                                             <div class="col-12">
                                                 <select class="form-control" id="cboUniversity" name="cboUniversity">
-                                                    <option selected>---โปรดระบุ---</option>
+                                                    <option selected  value="">---โปรดระบุ---</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -148,7 +216,7 @@
                                             </div>
                                             <div class="col-12">
                                                 <select class="form-control" id="cboFaculty" name="cboFaculty">
-                                                    <option selected>---โปรดระบุ---</option>
+                                                    <option selected  value="">---โปรดระบุ---</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -166,7 +234,7 @@
                                             </div>
                                             <div class="col-12">
                                                 <select class="form-control" id="cboCurriculum" name="cboCurriculum">
-                                                    <option selected>---โปรดระบุ---</option>
+                                                    <option selected value="">---โปรดระบุ---</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -249,13 +317,13 @@
                                         
                                     <div class="row">
                                         <div class="col-6" style=" text-align: right;">
-                                            <label for="txtTotalCredit">จำนวนหน่วยกิจรวมตลอดหลักสูตร </label><span style="color:blue;">&nbsp;&nbsp;(Auto)*</span>
+                                            <label for="txtTotalCredit">จำนวนหน่วยกิตรวมตลอดหลักสูตร </label><span style="color:blue;">&nbsp;&nbsp;(Auto)*</span>
                                         </div>
                                         <div class="col-3">
                                             <input type="text" class="form-control" id="txtTotalCredit">
                                         </div>
                                         <div class="col-3">
-                                            หน่วยกิจ
+                                            หน่วยกิต
                                         </div>
                                     </div>
                                     <div class="row">
@@ -347,56 +415,130 @@
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">ข้อมูลแฟ้ม 5</h2>
+                                    <h4 class="fs-group-title">อาจารย์ผู้รับผิดชอบหลักสูตร</h4>
                                     <div class="tab-container">
-                                        <table class="table table-striped" id="tbSubject">
+                                        <table class="table table-striped" id="tbResponsible">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">#</th>
-                                                    <th scope="col">รหัสวิชา</th>
-                                                    <th scope="col">ชื่อวิชา</th>
-                                                    <th scope="col">หน่วยกิต</th>
+                                                    <th scope="col">ตำแหน่ง</th>
+                                                    <th scope="col">ชื่อ-นามสกุล</th>
                                                     <th scope="col">แก้ไข</th>
+                                                    <th scope="col">ลบ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbodyResponsible">
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>อาจารย์</td>
+                                                    <td>นายเอ นามสมมุติ</td>
+                                                    <td><button class="btn btn-outline-primary" type="button" >แก้ไข</button></td>
+                                                    <td><button class="btn btn-outline-primary" type="button" onclick="javascript:$(this.parentNode.parentNode).remove();return false;" >ลบ</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <hr/>
+                                    <h4 class="fs-group-title-lec">อาจารย์ประจำหลักสูตร</h4>
+                                    <div class="tab-container">
+                                        <table class="table table-striped" id="tbLecturer">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">ตำแหน่ง</th>
+                                                    <th scope="col">ชื่อ-นามสกุล</th>
+                                                    <th scope="col">แก้ไข</th>
+                                                    <th scope="col">ลบ</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="tbodyLecturer">
                                                 <tr>
                                                     <th scope="row">1</th>
-                                                    <td>xxxx</td>
-                                                    <td>วิศวกรรมสิ่งแวดล้อม </td>
-                                                    <td><input type="text" name="creditSub1" id="creditSub1" placeholder="หน่วยกิต"/></td>
+                                                    <td>อาจารย์</td>
+                                                    <td>นายเอ นามสมมุติ</td>
                                                     <td><button class="btn btn-outline-primary" type="button" >แก้ไข</button></td>
+                                                    <td><button class="btn btn-outline-primary" type="button" onclick="javascript:$(this.parentNode.parentNode).remove();return false;" >ลบ</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-
-
+                                    <h4 class="fs-group-title-extra">อาจารย์พิเศษ</h4>
+                                    <div class="tab-container">
+                                        <table class="table table-striped" id="tbExtraLecturer">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">ตำแหน่ง</th>
+                                                    <th scope="col">ชื่อ-นามสกุล</th>
+                                                    <th scope="col">แก้ไข</th>
+                                                    <th scope="col">ลบ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbodyExtraLecturer">
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>อาจารย์</td>
+                                                    <td>นายเอ นามสมมุติ</td>
+                                                    <td><button class="btn btn-outline-primary" type="button" >แก้ไข</button></td>
+                                                    <td><button class="btn btn-outline-primary" type="button" onclick="javascript:$(this.parentNode.parentNode).remove();return false;">ลบ</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <button class="btn btn-outline-secondary" type="button" id="btnExtraLecturer" data-toggle="modal" data-target="#pnlExtraLecturer">เพิ่มอาจารย์พิเศษ</button>
+                                    </div>
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="ย้อนกลับ"/>
-                                <input type="button" name="make_payment" class="next action-button" value="ยืนยัน"/>
+                                <input type="button" name="next" class="next action-button" value="ถัดไป"/>
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title text-center">Success !</h2>
-                                    <br><br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-3">
-                                            <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
+                                    <h2 class="fs-title">ข้อมูลแฟ้ม 6-9</h2>                                    
+                                    <div class="row">
+                                        <div class="col-12" style=" text-align: left;">
+                                            <label for="txtDescriptionTH"  style=" font-family: 'Kanit', sans-serif; font-size: 14px;">คุณสมบัติของผู้เข้าศึกษา <span style="color:red;">&nbsp;(free) *</label>
                                         </div>
                                     </div>
-                                    <br><br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-7 text-center">
-                                            <h5>You Have Successfully Signed Up</h5>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <textarea class="form-control" id="txtDescriptionTH" rows="4"></textarea>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-12" style=" text-align: left;">
+                                            <label for="txtDescriptionEN"  style=" font-family: 'Kanit', sans-serif; font-size: 14px;">การประเมินผลการเรียนและเกณฑ์การสำเร็จการศึกษา <span style="color:red;">&nbsp;(free) *</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <textarea class="form-control" id="txtDescriptionEN" rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12" style=" text-align: left;">
+                                            <label for="txtDescriptionEN"  style=" font-family: 'Kanit', sans-serif; font-size: 14px;">การประกันคุณภาพหลักสูตร <span style="color:red;">&nbsp;(free) *</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <textarea class="form-control" id="txtDescriptionEN" rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12" style=" text-align: left;">
+                                            <label for="txtDescriptionEN"  style=" font-family: 'Kanit', sans-serif; font-size: 14px;">ระบบและกลไกในการพัฒนาหลักสูตร <span style="color:red;">&nbsp;(free) *</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <textarea class="form-control" id="txtDescriptionEN" rows="4"></textarea>
+                                        </div>
+                                    </div>
+
                                 </div>
+                                <input type="button" name="previous" class="previous action-button-previous" value="ย้อนกลับ"/>
+                                <input type="button" name="btnProcessAI" id="btnProcessAI" class="next action-button" value="ยืนยัน"/>
                             </fieldset>
                             </form>
-
-
-
-
                         </div>
                     </div>
                 </div>
@@ -405,331 +547,12 @@
     </div>
 
 
-
-
-
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
 
-       var tokenValue = Cookies.get('token') ;
-
-       console.log("Onload");
-       console.log("token "+tokenValue);
-
-       //removeCookie;
-       //Cookies.remove('token')
-       //set
-       //Cookies.set('name', 'value', { expires: 7 })
-
-       /*
-       Swal.fire({
-            title: 'Success!',
-            text: 'test',
-            icon: 'success',
-            confirmButtonText: 'Okay'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                console.log("callback");
-            } 
-        });
-        */
-
-       $.ajax({
-            method: "GET",
-            url: "https://tools.ecpe.nu.ac.th/cims/api/university-groups",
-            dataType : 'json',
-            headers: { 
-              'Content-Type': 'application/json',
-              "Accepts": "application/json",
-              "Authorization": "Bearer "+tokenValue,
-            },
-            success: function(data){
-              console.log(data);
-              console.log(data.data);
-              var list =data.data.university_groups;
-
-              console.log(list.length);
-              var options = '';
-              for (var i = 0; i < list.length; i++) {
-                options += '<option value="' + list[i].univ_group_id + '">' + list[i].univ_group_name + '</option>';
-              }
-             $("select#cboUniversityGroup").html(options);
-              
-
-              //alert("Done");
-            }
-        });
-        //---------On Change-------
-
-
-        
-        $("select#cboUniversityGroup").change(function(){
-            $('select#cboUniversity option:not(:first)').remove();
-            $('select#cboFaculty option:not(:first)').remove();
-            $('select#cboCurriculum option:not(:first)').remove();
-            
-            //clear datatable
-            $("#tbSubject").find("tr:gt(0)").remove();
-            
-            //clear data
-            clearCurriculumData();
-
-            if($(this).val()!=""){
-               
-                $.ajax({
-                    beforeSend: function(request) {
-                        request.setRequestHeader('Authorization', 'Bearer '+tokenValue);
-                        request.setRequestHeader('Content-Type', 'application/json');
-                    },
-                    dataType: "json",
-                    url: "https://tools.ecpe.nu.ac.th/cims/api/universities-by-group/"+$(this).val(),
-                    success: function(data) {
-                        //Your code
-                        console.log(data);
-                        console.log(data.data);
-                        var list =data.data.universities;
-          
-                        console.log(list.length);
-
-                        var options = '';
-                        for (var i = 0; i < list.length; i++) {
-                          options += '<option value="' + list[i].univ_id + '">' + list[i].univ_name_th + '</option>';
-                        }
-                        $('#cboUniversity').append(options);
-                    }
-                });
-   
-            }// end if
-
-        });
-
-        $("select#cboUniversity").change(function(){
-            $('select#cboFaculty option:not(:first)').remove();
-
-            if($(this).val()!=""){
-               
-                $.ajax({
-                    beforeSend: function(request) {
-                        request.setRequestHeader('Authorization', 'Bearer '+tokenValue);
-                        request.setRequestHeader('Content-Type', 'application/json');
-                    },
-                    dataType: "json",
-                    url: "https://tools.ecpe.nu.ac.th/cims/api/faculties-in-uni/"+$(this).val(),
-                    success: function(data) {
-                        //Your code
-                        console.log(data);
-                        console.log(data.data);
-                        var list =data.data.faculties;
-          
-                        console.log(list.length);
-
-                        var options = '';
-                        for (var i = 0; i < list.length; i++) {
-                          options += '<option value="' + list[i].fac_id + '">' + list[i].fac_name_th + '</option>';
-                        }
-                        $('#cboFaculty').append(options);
-                    }
-                });
-   
-            }// end if
-
-        });
-
-
-        $("select#cboFaculty").change(function(){
-            $('select#cboCurriculum option:not(:first)').remove();
-
-            if($(this).val()!=""){
-               
-                $.ajax({
-                    beforeSend: function(request) {
-                        request.setRequestHeader('Authorization', 'Bearer '+tokenValue);
-                        request.setRequestHeader('Content-Type', 'application/json');
-                    },
-                    dataType: "json",
-                    url: "https://tools.ecpe.nu.ac.th/cims/api/curriculum/"+$("select#cboUniversity").val()+"/"+$(this).val(),
-                    success: function(data) {
-                        //Your code
-                        console.log(data);
-                        console.log(data.data);
-                        var list =data.data.curriculum;
-          
-                        console.log(list.length);
-
-                        var options = '';
-                        for (var i = 0; i < list.length; i++) {
-                          options += '<option value="' + list[i].curr_id + '">' + list[i].curr_name + '</option>';
-                        }
-                        $('#cboCurriculum').append(options);
-                    }
-                });
-            }// end if
-        });
-
-        $("select#cboCurriculum").change(function(){
-            //clear data
-            clearCurriculumData();
-
-            if($(this).val()!=""){
-                
-                applyCurriculumData($(this).val());
-                applySubjectData($(this).val());
-                
-            }// end if
-        });
-
-        //-----custom function------
-        
-        function applyCurriculumData(curr_id){
-
-            $.ajax({
-                beforeSend: function(request) {
-                    request.setRequestHeader('Authorization', 'Bearer '+tokenValue);
-                    request.setRequestHeader('Content-Type', 'application/json');
-                },
-                dataType: "json",
-                url: "https://tools.ecpe.nu.ac.th/cims/api/curriculum/"+curr_id,
-                success: function(data) {
-                    //Your code
-                    console.log(data);
-                    console.log(data.data);
-                    var result =data.data.curriculum;
-      
-                    console.log(result.length);
-                    
-                    $('#txtCurriculumNameTh').val(result[0].bachelor_th);
-                    $('#txtAbbrCurriculumNameTh').val(result[0].s_bachelor_th);
-                    $('#txtCurriculumNameEn').val(result[0].bachelor_en);
-                    $('#txtAbbrCurriculumNameEn').val(result[0].s_bachelor_en);
-                    $('#txtBachelorBranch').val(result[0].bachelorbranch);
-                    $('#txtTotalCredit').val(result[0].credit_units_1);
-
-                }
-            });
-        }
-
-        function clearCurriculumData(){
-            $('#txtCurriculumNameTh').val('');
-            $('#txtAbbrCurriculumNameTh').val('');
-            $('#txtCurriculumNameEn').val('');
-            $('#txtAbbrCurriculumNameEn').val('');
-            $('#txtBachelorBranch').val('');
-            $('#txtTotalCredit').val('');
-        }
-
-        
-        function applySubjectData(curr_id){
-
-            $.ajax({
-                beforeSend: function(request) {
-                    request.setRequestHeader('Authorization', 'Bearer '+tokenValue);
-                    request.setRequestHeader('Content-Type', 'application/json');
-                },
-                dataType: "json",
-                url: "https://tools.ecpe.nu.ac.th/cims/api/subject/"+curr_id,
-                success: function(result) {
-                    //Your code
-                    console.log(result.length);
-                    console.log('Update subject');
-                    updateSubject(result);
-
-                }
-            });
-        }
-
-
-         //----------Utility----------------------
-        function updateSubject(items) {
-            console.log("updateSubject"+items.length);
-            
-            //clear datatable
-            $("#tbSubject").find("tr:gt(0)").remove();
-            
-
-            for (var i = 0; i < items.length; i++) {
-                var indexRef=i+1;
-                var col1=indexRef;
-                var col2=items[i].subject_code;
-                var col3=items[i].subject_name;
-                var col4="<input type='text' name='txtCreditSub"+indexRef+"' id='txtCreditSub"+indexRef+"' placeholder='หน่วยกิต' style='width:90px;'/>";
-                var col5="<button class='btn btn-outline-primary' type='button' onclick='javascript:alert(100);return false;' >แก้ไข</button>";
-                
-                $('#tbody').append('<tr id="rowSub'+indexRef+'"><td>'+col1+'</td><td>'+col2+'</td><td>'+col3+'</td><td>'+col4+'</td><td>'+col5+'</td></tr>');
-            
-            }
-        
-        }
-        
-
-        
-        
-        //----------Control Wizard-form----------------------
-        var current_fs, next_fs, previous_fs; //fieldsets
-        var opacity;
-
-        $(".next").click(function(){
-            
-            current_fs = $(this).parent();
-            next_fs = $(this).parent().next();
-            
-            //Add Class Active
-            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-            
-            //show the next fieldset
-            next_fs.show(); 
-            //hide the current fieldset with style
-            current_fs.animate({opacity: 0}, {
-                step: function(now) {
-                    // for making fielset appear animation
-                    opacity = 1 - now;
-
-                    current_fs.css({
-                        'display': 'none',
-                        'position': 'relative'
-                    });
-                    next_fs.css({'opacity': opacity});
-                }, 
-                duration: 600
-            });
-        });
-
-        $(".previous").click(function(){
-            
-            current_fs = $(this).parent();
-            previous_fs = $(this).parent().prev();
-            
-            //Remove class active
-            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-            
-            //show the previous fieldset
-            previous_fs.show();
-
-            //hide the current fieldset with style
-            current_fs.animate({opacity: 0}, {
-                step: function(now) {
-                    // for making fielset appear animation
-                    opacity = 1 - now;
-
-                    current_fs.css({
-                        'display': 'none',
-                        'position': 'relative'
-                    });
-                    previous_fs.css({'opacity': opacity});
-                }, 
-                duration: 600
-            });
-        });
-
-        $('.radio-group .radio').click(function(){
-            $(this).parent().find('.radio').removeClass('selected');
-            $(this).addClass('selected');
-        });
-
-        $(".submit").click(function(){
-            return false;
-        });
-      
     });
 </script>
+
+<script src="js/app.min.js"></script>
 </html>

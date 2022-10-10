@@ -7,6 +7,7 @@ html{
     font-family: 'Kanit', sans-serif;
 }
 
+
 /*Background color*/
 #grad1 {
     background-color:  #9C27B0;
@@ -147,6 +148,33 @@ select.list-dt:focus {
     font-family: 'Kanit', sans-serif;
     font-size: 25px;
     color: #2C3E50;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.fs-group-title {
+    font-family: 'Kanit', sans-serif;
+    font-size: 15px;
+    color: #28a745;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.fs-group-title-lec {
+    font-family: 'Kanit', sans-serif;
+    font-size: 15px;
+    color: #a728a7;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.fs-group-title-extra {
+    font-family: 'Kanit', sans-serif;
+    font-size: 15px;
+    color: #fa6007;
     margin-bottom: 10px;
     font-weight: bold;
     text-align: left;
