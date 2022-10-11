@@ -5,8 +5,8 @@ $(document).ready(function () {
   console.log("Onload");
   console.log("token " + tokenValue);
 
-  const endpoint_real = "https://tools.ecpe.nu.ac.th/cims/api";
-  const endpoint = "http://localhost:8000/api";
+  const endpoint_real = "http://localhost:8000/api";
+  const endpoint = "https://tools.ecpe.nu.ac.th/cims/api";
 
   $.ajax({
     method: "GET",
@@ -317,9 +317,10 @@ $(document).ready(function () {
       var col1 = indexRef;
       var col2 = items[i].positionname;
       var col3 = items[i].stf_fname + "    " + items[i].stf_lname;
-      var col4 =
-        "<button class='btn btn-outline-primary' type='button' onclick='javascript:alert(1);return false;' >แก้ไข</button>";
+      var col4 = items[i].grad_lev_name;
       var col5 =
+        "<button class='btn btn-outline-primary' type='button' onclick='javascript:alert(1);return false;' >แก้ไข</button>";
+      var col6 =
         "<button class='btn btn-outline-secondary' type='button' onclick='javascript:$(this.parentNode.parentNode).remove();return false;' > ลบ </button>";
 
       $("#tbodyResponsible").append(
@@ -335,6 +336,8 @@ $(document).ready(function () {
           col4 +
           "</td><td>" +
           col5 +
+          "</td><td>" +
+          col6 +
           "</td><td>"
       );
     }
@@ -351,9 +354,10 @@ $(document).ready(function () {
       var col1 = indexRef;
       var col2 = items[i].positionname;
       var col3 = items[i].stf_fname + "    " + items[i].stf_lname;
-      var col4 =
-        "<button class='btn btn-outline-primary' type='button' onclick='javascript:alert(1);return false;' >แก้ไข</button>";
+      var col4 = items[i].grad_lev_name;
       var col5 =
+        "<button class='btn btn-outline-primary' type='button' onclick='javascript:alert(1);return false;' >แก้ไข</button>";
+      var col6 =
         "<button class='btn btn-outline-secondary' type='button' onclick='javascript:$(this.parentNode.parentNode).remove();return false;' > ลบ </button>";
 
       $("#tbodyLecturer").append(
@@ -369,6 +373,8 @@ $(document).ready(function () {
           col4 +
           "</td><td>" +
           col5 +
+          "</td><td>" +
+          col6 +
           "</td><td>"
       );
     }
